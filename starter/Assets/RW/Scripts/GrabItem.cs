@@ -45,7 +45,7 @@ public class GrabItem : MonoBehaviour
 
         if (gripDown)
         {
-            Collider[] overlaps = Physics.OverlapSphere(transform.position, 0.2f);
+            Collider[] overlaps = Physics.OverlapSphere(transform.position, 0.05295137f);
 
             foreach (Collider c in overlaps)
             {

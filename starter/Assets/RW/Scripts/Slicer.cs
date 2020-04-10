@@ -36,17 +36,23 @@ public class Slicer : MonoBehaviour
 {
     public GameObject gameManager;
 
+
+
     private void OnTriggerEnter(Collider other)
     {
-        ControllerHaptics haptics = GetComponentInParent<ControllerHaptics>();
-        if (haptics)
-        {
-            haptics.HapticEvent();
-        }
+        if (other.transform.tag == transform.tag) { 
+            ControllerHaptics haptics = GetComponentInParent<ControllerHaptics>();
+            if (haptics)
+            {
+                haptics.HapticEvent();
+            }
 
-        SplitMesh(other.gameObject);
-        Destroy(other.gameObject);
+            SplitMesh(other.gameObject);
+            Destroy(other.gameObject);
+        }
     }
+
+
 
     // Get a cutting plane from the rotation/position of the saber
     private Plane GetPlane(GameObject go)

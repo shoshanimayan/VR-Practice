@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - blue
   - red
+  - directional
   layers:
   - Default
   - TransparentFX
