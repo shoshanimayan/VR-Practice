@@ -34,13 +34,15 @@ using UnityEngine;
 
 public class Slicer : MonoBehaviour
 {
-    public GameObject gameManager;
+    public gameManager manager;
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == transform.tag) { 
+        if (other.transform.tag == transform.tag) {
+            manager.increaseScore();
+            manager.hitSound();
             ControllerHaptics haptics = GetComponentInParent<ControllerHaptics>();
             if (haptics)
             {

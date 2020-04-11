@@ -30,18 +30,23 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 public class GrabItem : MonoBehaviour
 {
     public XRNode handType;
-
+    public GameObject[] items;
+    public bool restart = false;
     void Update()
     {
         bool gripDown = false;
+        restart = false;
         InputDevice hand = InputDevices.GetDeviceAtXRNode(handType);
         hand.TryGetFeatureValue(CommonUsages.gripButton, out gripDown);
+        hand.TryGetFeatureValue(CommonUsages.triggerButton, out restart);
 
         if (gripDown)
         {
@@ -53,11 +58,25 @@ public class GrabItem : MonoBehaviour
 
                 if (other.GetComponent<Grabbable>())
                 {
-                    if (other.gameObject.transform.parent == null)
+                    if (other.gameObject.transform.parent == null && items.Contains( other.gameObject))
                     {
                         other.transform.SetParent(transform);
+                        gameManager.weapons++;
+                        foreach (GameObject x in items) {
+                            if (x != other.gameObject) {
+                                Destroy(x);
+                            }
+                                }
                     }
                 }
+            }
+        }
+        if (gameManager.ended == true)
+        {
+            if (restart)
+            {
+                SceneManager.LoadScene(0);
+
             }
         }
     }

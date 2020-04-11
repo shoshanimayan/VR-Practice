@@ -89,9 +89,10 @@ GameObject:
   - component: {fileID: 4048233155313947000}
   - component: {fileID: 6376250837667550540}
   - component: {fileID: 4916077955447618571}
+  - component: {fileID: 3930327311684621818}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,3 +199,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537f3e19ffad14471a6ba9294e298bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3930327311684621818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4200220770287256628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48c82f714af14d9097f543cfd75f86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: -6}
+  destination: {fileID: 0}
+  rb: {fileID: 0}

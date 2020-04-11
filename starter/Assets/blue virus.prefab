@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5238680645599111132}
   - component: {fileID: 2945706597208450024}
   - component: {fileID: 2807600709577825755}
+  - component: {fileID: 6243353703925513212}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +124,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537f3e19ffad14471a6ba9294e298bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6243353703925513212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392937789751095952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48c82f714af14d9097f543cfd75f86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: -6}
+  destination: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &5392937789751095956
 GameObject:
   m_ObjectHideFlags: 0

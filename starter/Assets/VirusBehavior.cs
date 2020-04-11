@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class VirusBehavior : MonoBehaviour
 {
-    public Vector3 movement;
-    public Vector3 destination;
+    public Vector3 movement= new Vector3(0, 0, -6);
+    public GameObject destination;
 
     float dTime = 0;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     void Start()
     {
@@ -22,22 +22,22 @@ public class VirusBehavior : MonoBehaviour
         if (rb.isKinematic)
         {
             // 2 Move from the origin to the position for the note in the first second.
-            dTime += Time.deltaTime;
+            /*dTime += Time.deltaTime;
 
             if (dTime < 1.0f)
             {
                 // 3 Lerp along the X/Y axis to the correct lane.
                 Vector3 position = transform.position;
                 float z = position.z;
-                position.z = destination.z;
+                position.z = destination.transform.position.z;
 
-                position = Vector3.Lerp(position, destination, dTime);
+                position = Vector3.Lerp(position, destination.transform.position, dTime);
                 position.z = z;
                 transform.position = position;
             }
-
+            */
             // 4 Move along Z
-            transform.Translate(movement * Time.deltaTime);
+            transform.Translate(movement * Time.deltaTime*.5f);
         }
     }
 }
