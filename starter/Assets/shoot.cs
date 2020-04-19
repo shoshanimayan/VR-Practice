@@ -6,7 +6,8 @@ using UnityEngine.XR;
 public class shoot : MonoBehaviour
 {
     private bool held;
-    private bool triggerDown;
+    private float triggerDown;
+    private float previousDown;
     public XRNode handType;
     public GameObject bullethole;
     public GameObject bullet;
@@ -18,22 +19,24 @@ public class shoot : MonoBehaviour
     {
         bullet.GetComponent<bullet>().Manager = manager;
         held = false;
+        triggerDown = 0;
+        previousDown = 0;
     }
     // Update is called once per frame
     void Update()
     {
         if (held )
         {
-            triggerDown = false;
+            //triggerDown = false;
 
             InputDevice hand = InputDevices.GetDeviceAtXRNode(handType);
-            hand.TryGetFeatureValue(CommonUsages.triggerButton , out triggerDown);
-            if ( triggerDown )
+            hand.TryGetFeatureValue(CommonUsages.trigger , out triggerDown);
+            if ( triggerDown>0 &&previousDown==0 )
             {
              //   manager.gunSound();
                 Instantiate(bullet, bullethole.transform.position, bullethole.transform.rotation).GetComponent<Rigidbody>().AddForce(bullethole.transform.right * 500f);
             }
-            
+            previousDown = triggerDown;
            
             
         }
